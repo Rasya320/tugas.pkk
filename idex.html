@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Faairus Hakim — Biodata</title>
+  <meta name="description" content="Biodata Faairus Hakim — portofolio mini, skills, pendidikan, proyek, kontak." />
+
+  <!-- Basic reset + layout -->
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#94a3b8;
+      --accent:#7c3aed;
+      --accent-2:#06b6d4;
+      --glass: rgba(255,255,255,0.04);
+      --maxw:1100px;
+      --radius:14px;
+      color-scheme: dark;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:
+        radial-gradient(600px 400px at 10% 10%, rgba(124,58,237,0.08), transparent 8%),
+        radial-gradient(500px 300px at 90% 90%, rgba(6,182,212,0.06), transparent 9%),
+        var(--bg);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:28px;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      gap:20px;
+      font-size:16px;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:var(--maxw);
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      gap:28px;
+      align-items:start;
+    }
+
+    /* SIDEBAR */
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+      border:1px solid rgba(255,255,255,0.03);
+    }
+
+    .profile{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      align-items:center;
+    }
+
+    .avatar{
+      width:160px;
+      height:160px;
+      border-radius:18px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:grid;
+      place-items:center;
+      position:relative;
+      overflow:hidden;
+      border:3px solid rgba(255,255,255,0.06);
+    }
+
+    .avatar svg{width:84%; height:84%; opacity:0.96}
+
+    h1{
+      font-size:22px;
+      margin:0;
+      letter-spacing:0.6px;
+      text-align:center;
+    }
+    .meta{
+      color:var(--muted);
+      font-size:13px;
+      text-align:center;
+    }
+
+    .tagline{
+      font-style:italic;
+      font-weight:600;
+      text-align:center;
+      color: #d8e6ff;
+      font-size:13px;
+    }
+
+    .contact-list{
+      margin-top:6px;
+      display:grid;
+      gap:8px;
+      width:100%;
+    }
+
+    .contact-item{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      font-size:13px;
+      color:var(--muted);
+      padding:8px;
+      border-radius:10px;
+      background:linear-gradient(90deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      border:1px solid rgba(255,255,255,0.02);
+    }
+    .contact-item b{color:#fff; min-width:80px; font-weight:600}
+
+    /* SKILLS */
+    .skills{margin-top:8px}
+    .skill{
+      margin-bottom:12px;
+    }
+    .skill .label{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-bottom:6px}
+    .bar{
+      height:10px;
+      background:rgba(255,255,255,0.04);
+      border-radius:999px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.02);
+    }
+    .bar > i{
+      display:block;
+      height:100%;
+      width:0%;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      border-radius:999px;
+      transition:width 1100ms cubic-bezier(.2,.9,.3,1);
+      box-shadow:0 4px 14px rgba(124,58,237,0.14);
+    }
+
+    /* MAIN */
+    main{
+      min-height:300px;
+    }
+
+    .hero{
+      display:flex;
+      gap:18px;
+      align-items:center;
+      margin-bottom:18px;
+    }
+    .hero .intro{
+      flex:1;
+    }
+    .eyebrow{color:var(--accent); font-weight:700; font-size:12px; text-transform:uppercase; letter-spacing:1.6px}
+    .big-title{font-size:26px;margin:6px 0 8px}
+    .lead{color:var(--muted);font-size:15px;max-width:65ch}
+
+    /* cards and grid */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap:18px;
+    }
+
+    .about p{color:var(--muted); margin:0}
+
+    .projects .card-inner{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .project-thumb{
+      height:120px;
+      border-radius:10px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.0));
+      display:grid;
+      place-items:center;
+      font-weight:700;
+      color:rgba(255,255,255,0.9);
+      border:1px solid rgba(255,255,255,0.02);
+    }
+
+    .tag{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+      background:rgba(255,255,255,0.03);
+      color:var(--muted);
+      border:1px solid rgba(255,255,255,0.02);
+    }
+
+    /* timeline */
+    .timeline{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .event{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+    }
+    .event .dot{
+      width:10px;height:10px;border-radius:50%;background:var(--accent);
+      margin-top:6px;flex:0 0 10px;
+      box-shadow:0 0 0 6px rgba(124,58,237,0.06);
+    }
+    .event .ev-body{color:var(--muted);font-size:14px; background:var(--glass); padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);}
+
+    /* contact form */
+    form {display:flex;flex-direction:column;gap:10px}
+    input,textarea,select{
+      width:100%;padding:10px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:inherit;font-size:14px;
+    }
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:12px;border:none;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;font-weight:700;cursor:pointer;
+      box-shadow:0 8px 30px rgba(6,182,212,0.08);
+    }
+
+    footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* responsive */
+    @media (max-width:960px){
+      .wrap{grid-template-columns: 1fr; padding-bottom:40px}
+      .grid{grid-template-columns:1fr}
+    }
+
+    /* little accent animation */
+    .pulse{
+      animation:pulse 2400ms infinite;
+    }
+    @keyframes pulse{
+      0%{transform:scale(1);opacity:1}
+      50%{transform:scale(1.06);opacity:0.85}
+      100%{transform:scale(1);opacity:1}
+    }
+
+    /* subtle entrance */
+    .fade-up{transform:translateY(12px);opacity:0;transition:all 700ms cubic-bezier(.2,.9,.3,1)}
+    .fade-up.show{transform:none;opacity:1}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- SIDEBAR -->
+    <aside class="card" aria-label="Profil sidebar">
+      <div class="profile">
+        <div class="avatar pulse" title="Faairus Hakim">
+          <!-- simple SVG avatar, no external images -->
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="avatar">
+            <rect width="100" height="100" rx="14" fill="rgba(255,255,255,0.06)"/>
+            <g transform="translate(14,12)">
+              <circle cx="36" cy="26" r="18" fill="#0b1220" stroke="rgba(255,255,255,0.06)" stroke-width="1.2"/>
+              <rect x="4" y="54" width="64" height="20" rx="8" fill="#0b1220" stroke="rgba(255,255,255,0.02)"/>
+              <path d="M12 60 Q36 44 60 60" stroke="rgba(255,255,255,0.04)" stroke-width="2" fill="none"/>
+            </g>
+          </svg>
+        </div>
+
+        <h1>Faairus Hakim</h1>
+        <div class="meta">Student • Aspiring Game Dev • Musik & Game Enthusiast</div>
+        <div class="tagline">"Ngoding sambil ngunyah ide, ngopi sambil debugging jiwa."</div>
+
+        <div class="contact-list" style="width:100%">
+          <div class="contact-item"><b>Email</b><span>faairus.hakim@example.com</span></div>
+          <div class="contact-item"><b>Telp</b><span>+62 812-3456-7890</span></div>
+          <div class="contact-item"><b>Lokasi</b><span>Jakarta, Indonesia</span></div>
+          <div class="contact-item"><b>Role</b><span>Game Dev / Frontend</span></div>
+        </div>
+
+        <div class="skills" style="width:100%">
+          <h3 style="margin:8px 0 6px">Skills</h3>
+
+          <div class="skill">
+            <div class="label"><span>HTML & CSS</span><span>92%</span></div>
+            <div class="bar"><i data-width="92%"></i></div>
+          </div>
+
+          <div class="skill">
+            <div class="label"><span>JavaScript</span><span>85%</span></div>
+            <div class="bar"><i data-width="85%"></i></div>
+          </div>
+
+          <div class="skill">
+            <div class="label"><span>Unity / Godot</span><span>68%</span></div>
+            <div class="bar"><i data-width="68%"></i></div>
+          </div>
+
+          <div class="skill">
+            <div class="label"><span>Pixel Art & Assets</span><span>62%</span></div>
+            <div class="bar"><i data-width="62%"></i></div>
+          </div>
+        </div>
+
+        <div style="width:100%;display:flex;gap:10px;margin-top:10px">
+          <a class="btn" href="#projects" style="flex:1;text-decoration:none;text-align:center">Lihat Proyek</a>
+          <button id="downloadBtn" class="btn" style="flex:0 0 46%">PDF</button>
+        </div>
+
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main>
+      <section class="card hero fade-up" id="hero">
+        <div class="intro">
+          <div class="eyebrow">Biodata & Portofolio Mini</div>
+          <div class="big-title">Faairus Hakim — Pembuat ide yang kadang komplit, kadang error</div>
+          <div class="lead">Aing: calon game dev yang lebih cinta asset pixel daripada kehidupan sosial. Suka musik, ngoding, dan bikin game 2D yang bikin orang mager. Berikut ringkasan riwayat hidup yang (lebih) berfaedah daripada status WA.</div>
+        </div>
+        <div style="min-width:200px;display:flex;flex-direction:column;gap:8px;align-items:flex-end">
+          <div class="tag">Aktif: Belajar & Proyek</div>
+          <div style="color:var(--muted);font-size:13px">Tanggal: <strong id="today">—</strong></div>
+          <div style="font-size:12px;color:var(--muted)">Status: <span style="color:#aef; font-weight:700">Available untuk kolab</span></div>
+        </div>
+      </section>
+
+      <section class="card about fade-up" style="margin-top:14px">
+        <h3 style="margin:0 0 10px">Tentang Faairus</h3>
+        <p>
+          Nama lengkap <strong>Faairus Hakim</strong>. Pelajar yang sedang mendalami dunia pembuatan game 2D, terutama genre fighting dan adventure ala sekolah. Aing suka buat prototipe cepat, desain level sederhana, dan cerita yang nyantol di perasaan. Niatnya: bikin game yang seru, ringan, tapi punya cerita. Realistis, praktis, dan suka bercanda pakai referensi tokoh.
+        </p>
+
+        <div style="margin-top:14px" class="grid">
+          <div class="card" style="padding:12px">
+            <h4 style="margin:0 0 8px">Pendidikan</h4>
+            <div class="tag" style="margin-bottom:8px">SMK - Teknik Komputer & Jaringan</div>
+            <div style="color:var(--muted)">Saat ini fokus belajar TKJ, sambil praktek pembuatan aplikasi dan game sederhana.</div>
+          </div>
+
+          <div class="card" style="padding:12px">
+            <h4 style="margin:0 0 8px">Minat</h4>
+            <div style="display:flex;flex-wrap:wrap;gap:8px">
+              <span class="tag">Game Design</span>
+              <span class="tag">Pixel Art</span>
+              <span class="tag">Sound Design</span>
+              <span class="tag">Frontend</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="card projects fade-up" style="margin-top:14px">
+        <h3 style="margin:0 0 12px">Proyek Pilihan</h3>
+
+        <div class="grid">
+          <article class="card" style="padding:12px">
+            <div class="card-inner">
+              <div class="project-thumb">School Fighter — Prototype</div>
+              <h4 style="margin:0">School Fighter</h4>
+              <p style="color:var(--muted);margin:0">Game fighting 2D dengan latar SMA. Mekanik combo dasar, HP, dan skill. Dibangun menggunakan HTML5 Canvas / prototype Godot.</p>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
+                <span class="tag">HTML5</span><span class="tag">Canvas</span><span class="tag">Prototype</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" style="padding:12px">
+            <div class="card-inner">
+              <div class="project-thumb">Tiny Adventure</div>
+              <h4 style="margin:0">Tiny Adventure</h4>
+              <p style="color:var(--muted);margin:0">Adventure 2D dengan pengaruh Pokemon Emerald + Citampi Story. Mekanik quest, NPC, inventory sederhana.</p>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
+                <span class="tag">Godot</span><span class="tag">Design</span><span class="tag">Story</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" style="padding:12px">
+            <div class="card-inner">
+              <div class="project-thumb">Aplikasi Kuis TKJ</div>
+              <h4 style="margin:0">Quiz TKJ App</h4>
+              <p style="color:var(--muted);margin:0">Aplikasi kuis yang dibuat untuk tugas sekolah. Menampilkan skor, timer, dan database soal sederhana.</p>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
+                <span class="tag">JS</span><span class="tag">LocalStorage</span><span class="tag">UI</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" style="padding:12px">
+            <div class="card-inner">
+              <div class="project-thumb">Personal Website</div>
+              <h4 style="margin:0">This page</h4>
+              <p style="color:var(--muted);margin:0">Portofolio mini yang sedang lo liat — responsive, cepat, dan bisa dikustom gampang.</p>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
+                <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Vanilla JS</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="card fade-up" style="margin-top:14px">
+        <h3 style="margin:0 0 10px">Timeline Singkat</h3>
+        <div class="timeline">
+          <div class="event">
+            <div class="dot"></div>
+            <div class="ev-body"><strong>2023</strong> — Mulai serius belajar pembuatan game, bikin prototipe HTML5 pertama.</div>
+          </div>
+
+          <div class="event">
+            <div class="dot"></div>
+            <div class="ev-body"><strong>2024</strong> — Ikut project kelompok TKJ, membuat aplikasi kuis sebagai tugas. Eksperimen dengan Godot.</div>
+          </div>
+
+          <div class="event">
+            <div class="dot"></div>
+            <div class="ev-body"><strong>2025</strong> — Fokus PKL 3 bulan, memperdalam skill frontend dan game prototyping.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card fade-up" style="margin-top:14px">
+        <h3 style="margin:0 0 10px">Kontak & Pesan</h3>
+        <form id="contactForm">
+          <input type="text" id="nm" placeholder="Nama" required />
+          <input type="email" id="em" placeholder="Email" required />
+          <textarea id="msg" rows="4" placeholder="Pesan singkat..."></textarea>
+          <div style="display:flex;gap:8px">
+            <button type="submit" class="btn">Kirim</button>
+            <button type="button" id="resetBtn" class="btn" style="background:rgba(255,255,255,0.04);color:var(--accent);box-shadow:none;">Reset</button>
+          </div>
+          <div id="formResult" style="color:var(--muted);font-size:13px;margin-top:6px"></div>
+        </form>
+      </section>
+
+      <footer>
+        <small>© <span id="year"></span> Faairus Hakim — dibuat dengan kopi, musik, dan sedikit terlalu banyak ide.</small>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // small utilities
+    const $ = q => document.querySelector(q);
+    const $$ = q => Array.from(document.querySelectorAll(q));
+
+    // Populate date
+    (function setDate(){
+      const d = new Date();
+      const opts = { year:'numeric', month:'long', day:'numeric' };
+      $('#today').textContent = d.toLocaleDateString('id-ID', opts);
+      $('#year').textContent = d.getFullYear();
+    })();
+
+    // animate skill bars when visible
+    function revealSkills(){
+      $$('.bar > i').forEach((el, idx) => {
+        const w = el.getAttribute('data-width') || '60%';
+        // small delay stagger
+        setTimeout(()=> el.style.width = w, 120*idx);
+      });
+    }
+
+    // simple fade-up reveal for visible elements
+    function revealOnScroll(){
+      const els = $$('.fade-up');
+      const winH = window.innerHeight;
+      els.forEach(el=>{
+        const rect = el.getBoundingClientRect();
+        if(rect.top < winH - 80){
+          el.classList.add('show');
+        }
+      });
+    }
+
+    // contact form (no backend) — just client validation & nice UX
+    (function contact(){
+      const form = $('#contactForm');
+      const result = $('#formResult');
+      form.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        const name = $('#nm').value.trim();
+        const email = $('#em').value.trim();
+        const msg = $('#msg').value.trim();
+        if(!name || !email){ result.textContent = 'Nama dan email harus diisi.'; return; }
+        result.textContent = 'Pesan siap dikirim. (Form ini demo — implement backend untuk kirim.)';
+        // simple visual feedback
+        form.reset();
+      });
+      $('#resetBtn').addEventListener('click', ()=>{ form.reset(); result.textContent='Form direset.'; });
+    })();
+
+    // Download as simple printable PDF using window.print (quick hack)
+    $('#downloadBtn').addEventListener('click', ()=> {
+      window.print();
+    });
+
+    // Initial reveals
+    document.addEventListener('DOMContentLoaded', ()=>{
+      revealOnScroll();
+      revealSkills();
+    });
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('resize', revealOnScroll);
+
+    // tiny accessibility: keyboard focus styles
+    document.addEventListener('keydown', e=>{
+      if(e.key === 'Tab') document.body.classList.add('kbd');
+    });
+  </script>
+</body>
+</html>
